@@ -24,6 +24,6 @@ public class PointDeVente {
 	private String ville;
 	private String pays;
 	private double montant_disponible;
-	@OneToMany
+	@OneToMany(targetEntity=Agent.class,mappedBy="pointdevente")
 	private List<Agent> Agents;
 }
