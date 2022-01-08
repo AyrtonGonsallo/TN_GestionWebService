@@ -2,14 +2,7 @@ package com.example.EmissionTransfertNational.entities;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import com.example.EmissionTransfertNational.enums.EtatTransfert;
 import com.example.EmissionTransfertNational.enums.MotifTransfert;
@@ -39,8 +32,11 @@ public class Transfert {
 	private double montant_operation;
 	private double comission;
 	private double frais;
-	@Transient
+	@OneToOne
+	@JoinColumn(name="emetteur_id",referencedColumnName="idClient")
 	private Emetteur emetteur;
+	@Transient
+	private Agent agent;
 	private String pays_d_emission;
 	@Transient
 	private Beneficiaire beneficiaire;

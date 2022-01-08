@@ -1,3 +1,4 @@
+tester l'ajout d'un client avec 3 comptes et piece
 {
   "id": 4,
   "nom": "Morgan",
@@ -39,3 +40,80 @@
   "email": "dexter@gmail.com",
   "ville": "miami"
 }
+
+
+
+tester l'ajout d'un transfert
+
+{
+  
+  "reference": "string",
+  "codePin": "string",
+  "type": "en_especes",
+  "etat": "en_déshérence",
+  "delai_de_validite": "2022-01-08T10:57:52.970Z",
+  "delai_de_desherence": "2022-01-08T10:57:52.970Z",
+  "date_demission": "2022-01-08T10:57:52.970Z",
+  "date_de_blocage": "2022-01-08T10:57:52.970Z",
+  "date_de_deblocage": "2022-01-08T10:57:52.970Z",
+  "montant_transfert": 0,
+  "montant_operation": 0,
+  "comission": 0,
+  "frais": 0,
+  "emetteur": {
+    
+    "nom": "string",
+    "prenom": "string",
+    "telephone": "string",
+    "piece_identite": null,
+    "comptes": null,
+    "type": "partenaire",
+    "sexe": "M",
+    "profession": "string",
+    "pays_d_adresse": "string",
+    "adresselegale": "string",
+    "email": "string",
+    "ville": "string",
+    "limite_somme_transfert": 0,
+    "nbr_transfert_envoyes": 0
+  },
+  "agent": null,
+  "pays_d_emission": "string",
+  "beneficiaire": null,
+  "motif": "Soutien_familial"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
