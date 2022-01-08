@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 import com.example.EmissionTransfertNational.enums.Sexe;
 import com.example.EmissionTransfertNational.enums.TypeClient;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.*;
 @Entity
@@ -22,8 +23,10 @@ public class Client {
 	private String telephone;
 	@OneToOne
     @JoinColumn(name = "piece_id", referencedColumnName = "id")
+	@JsonIgnoreProperties({"client"})
 	private PieceIdentite piece_identite;
 	@OneToMany( targetEntity=Compte.class, mappedBy="client")
+	@JsonIgnoreProperties({"client"})
 	private List<Compte> comptes;
 	@Enumerated(EnumType.STRING)
 	private TypeClient type;

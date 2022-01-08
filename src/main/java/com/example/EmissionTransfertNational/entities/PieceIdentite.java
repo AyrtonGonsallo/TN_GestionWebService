@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 
 import com.example.EmissionTransfertNational.enums.TypePieceIdentite;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.*;
@@ -21,7 +22,7 @@ public class PieceIdentite {
 	private Date date_de_naissance;
 	private String pays;
 	 @OneToOne(mappedBy = "piece_identite")
-	 @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	 @JsonIgnoreProperties({"piece_identite"})
 	private Client client;
 	private Date date_d_expiration;
 }
