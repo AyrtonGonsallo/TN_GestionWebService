@@ -21,9 +21,9 @@ public class EmissionTransfertNationalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//http://localhost:1945/swagger-ui/index.html
-		clientR.save(new Client(1L,"Caiceira","Junior","0634543456",null,null,TypeClient.de_passage,Sexe.M,null,"maroc","23 rue 23","j@c.com","meknes"));
-		clientR.save(new Client(2L,"Miko","Manske","0634526374",null,null,TypeClient.partenaire,Sexe.M,null,"maroc","22 rue 23","m@m.com","marrakech"));
-		clientR.save(new Client(3L,"Korey","Alexa","0645363784",null,null,TypeClient.de_passage,Sexe.Mme,null,"maroc","12 rue 2","k@a.com","safi"));
+		clientR.save(new Client(1L,"Caiceira","Junior","0634543456",null,null,TypeClient.de_passage,Sexe.M,null,"maroc","23 rue 23","j@c.com",null,"meknes"));
+		clientR.save(new Client(2L,"Miko","Manske","0634526374",null,null,TypeClient.partenaire,Sexe.M,null,"maroc","22 rue 23","m@m.com",null,"marrakech"));
+		clientR.save(new Client(3L,"Korey","Alexa","0645363784",null,null,TypeClient.de_passage,Sexe.Mme,null,"maroc","12 rue 2","k@a.com",null,"safi"));
 		clientR.findAll().forEach(cp->{
 			System.out.println("Client "+cp.getIdClient()+" "+cp.getNom()+" "+cp.getPrenom());
 		

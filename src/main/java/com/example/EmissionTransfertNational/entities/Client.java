@@ -33,5 +33,8 @@ public class Client {
 	private String pays_d_adresse;
 	private String adresselegale;
 	private String email;
+	@OneToOne
+	@JoinColumn(name = "wallet_id", referencedColumnName = "id")
+	private Wallet wallet;
 	private String ville;
 }
