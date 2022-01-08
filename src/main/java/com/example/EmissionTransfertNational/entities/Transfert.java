@@ -35,10 +35,12 @@ public class Transfert {
 	@OneToOne
 	@JoinColumn(name="emetteur_id",referencedColumnName="idClient")
 	private Emetteur emetteur;
-	@Transient
+	@OneToOne
+	@JoinColumn(name="agent_id",referencedColumnName="idClient")
 	private Agent agent;
 	private String pays_d_emission;
-	@Transient
+	@OneToOne
+	@JoinColumn(name="beneficiaire_id",referencedColumnName="idClient")
 	private Beneficiaire beneficiaire;
 	@Enumerated(EnumType.STRING)
 	private MotifTransfert motif;
