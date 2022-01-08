@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class TransfertMultiple {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@OneToMany(targetEntity=Transfert.class,mappedBy="transfert_miltiple_id")
+	@OneToMany(targetEntity=Transfert.class,mappedBy="transfertMultiple")
 	private List<Transfert> transferts;
 	
 

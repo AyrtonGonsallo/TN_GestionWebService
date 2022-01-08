@@ -45,6 +45,6 @@ public class Transfert {
 	@Enumerated(EnumType.STRING)
 	private MotifTransfert motif;
 	@ManyToOne
-	@JoinColumn(name="transfert_miltiple_id")
+	@JoinColumn(name="transfert_multiple_id")
 	private TransfertMultiple transfertMultiple;
 }
