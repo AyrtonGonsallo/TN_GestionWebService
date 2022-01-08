@@ -1,6 +1,7 @@
 package com.example.EmissionTransfertNational.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -11,4 +12,6 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor 
 public class Agent extends Client {
 	private double salary;
+	@ManyToOne
+	private PointDeVente pointdevente;
 }

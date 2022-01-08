@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -23,6 +24,6 @@ public class PointDeVente {
 	private String ville;
 	private String pays;
 	private double montant_disponible;
-	@Transient
+	@OneToMany
 	private List<Agent> Agents;
 }
