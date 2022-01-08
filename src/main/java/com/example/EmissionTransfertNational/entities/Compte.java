@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 import com.example.EmissionTransfertNational.enums.TypeCompte;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.*;
 @Entity
@@ -16,6 +17,7 @@ public class Compte {
 	private double montant;
 	@ManyToOne
 	@JoinColumn(name="idClient")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Client client;
 	private Date date_ouverture;
 	@Enumerated(EnumType.STRING)

@@ -13,10 +13,12 @@ public class ClientRestController {
 	private ClientRepository clientR;
 	private CompteRepository cptR;
 	private PieceIdentiteRepository pR;
-	public ClientRestController(ClientRepository cR,PieceIdentiteRepository pR, CompteRepository cptR){
+	private WalletRepository wR;
+	public ClientRestController(ClientRepository cR,PieceIdentiteRepository pR, CompteRepository cptR,WalletRepository wr){
 			this.clientR=cR;
 			this.cptR=cptR;
 			this.pR=pR;
+			this.wR=wr;
 	}
 	@GetMapping(path="/get_clients")
 	public List<Client>listClients(){
@@ -33,6 +35,10 @@ public class ClientRestController {
 		PieceIdentite pi=client.getPiece_identite();
 		if(pi!=null){
 			pR.save(pi);
+		}
+		Wallet w=client.getWallet();
+		if(w!=null){
+			wR.save(w);
 		}
 		 List<Compte>l=client.getComptes();
 		 if(l!=null){

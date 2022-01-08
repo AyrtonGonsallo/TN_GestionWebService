@@ -1,11 +1,11 @@
-tester l'ajout d'un client avec 3 comptes et piece
+tester l'ajout d'un client avec 3 comptes wallet et piece
 {
-  "id": 4,
+  
   "nom": "Morgan",
   "prenom": "Dexter",
   "telephone": "034234525232",
   "piece_identite": {
-    "id": 1,
+    
     "type_piece_identite": "passeport",
     "numero": "A0422432",
     "date_de_naissance": "2022-01-06T19:22:40.589Z",
@@ -15,18 +15,18 @@ tester l'ajout d'un client avec 3 comptes et piece
   },
   "comptes": [
     {
-      "id": 1,
+      
       "montant": 100000,
       "date_ouverture": "2022-01-06T19:22:40.590Z",
       "type": "commission"
     },
 	{
-      "id": 2,
+      
       "montant": 200000,
       "date_ouverture": "2022-01-06T19:22:40.590Z",
       "type": "commission"
     },{
-      "id": 3,
+      
       "montant": 300000,
       "date_ouverture": "2022-01-06T19:22:40.590Z",
       "type": "commission"
@@ -38,6 +38,11 @@ tester l'ajout d'un client avec 3 comptes et piece
   "pays_d_adresse": "amerique",
   "adresselegale": "miami 21 34",
   "email": "dexter@gmail.com",
+"wallet": {
+    
+    "client": null,
+    "cartes": null
+  },
   "ville": "miami"
 }
 
