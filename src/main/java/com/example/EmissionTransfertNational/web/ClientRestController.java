@@ -30,17 +30,20 @@ public class ClientRestController {
 	}
 	@PostMapping(path="/add_client")
 	public Client saveClient(@RequestBody Client client){
-		 PieceIdentite pi=client.getPiece_identite();
-		 pR.save(pi);
-		 for(Compte c:client.getComptes()){
+		PieceIdentite pi=client.getPiece_identite();
+		if(pi!=null){
+			pR.save(pi);
+		}
+		 List<Compte>l=client.getComptes();
+		 if(l!=null){
+			 client.setComptes(null);
+		 clientR.save(client);
+		 for(Compte c:l){
+			 c.setClient(client);
 			 cptR.save(c);
 		 }
-		 //clientR.save(client);
-		 pi.setClient(client);
-		 for(Compte c:client.getComptes()){
-			 c.setClient(client);
-			 //cptR.save(c);
 		 }
+		 
 		return clientR.save(client);
 	}
 
