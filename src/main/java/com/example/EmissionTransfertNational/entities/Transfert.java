@@ -44,4 +44,7 @@ public class Transfert {
 	private Beneficiaire beneficiaire;
 	@Enumerated(EnumType.STRING)
 	private MotifTransfert motif;
+	@ManyToOne
+	@JoinColumn(name="transfert_miltiple_id")
+	private TransfertMultiple transfertMultiple;
 }
