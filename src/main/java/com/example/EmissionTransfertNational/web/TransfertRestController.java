@@ -35,9 +35,7 @@ public class TransfertRestController {
 	@PostMapping(path="/add_Transfert")
 	public Transfert saveTransfert(@RequestBody Transfert transfert){
 		Emetteur em=transfert.getEmetteur();
-		if(em!=null){
-			eR.save(em);
-		}
+		//en suppossant que l'emetteur et le beneficiaire existent
 		tR.save(transfert);
 		
 		

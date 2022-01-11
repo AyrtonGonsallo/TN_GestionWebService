@@ -7,6 +7,7 @@ import javax.persistence.*;
 import com.example.EmissionTransfertNational.enums.TypeCompte;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.*;
 @Entity
@@ -14,11 +15,11 @@ import lombok.*;
 @Data @NoArgsConstructor @AllArgsConstructor @Getter @Setter
 public class Compte {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty(access=Access.READ_ONLY)
 	private long idCompte;
 	private double montant;
 	@ManyToOne
 	@JoinColumn(name="idClient")
-	//@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@JsonIgnoreProperties("comptes")
 	private Client client;
 	private Date date_ouverture;

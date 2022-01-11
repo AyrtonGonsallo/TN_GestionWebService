@@ -11,7 +11,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,8 +23,10 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class TransfertMultiple {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty(access=Access.READ_ONLY)
 	private Long id;
 	@OneToMany(targetEntity=Transfert.class,mappedBy="transfertMultiple")
+	@JsonIgnoreProperties({"transfertMultiple"})
 	private List<Transfert> transferts;
 	
 

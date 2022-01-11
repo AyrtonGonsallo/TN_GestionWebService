@@ -14,11 +14,13 @@ public class ClientRestController {
 	private CompteRepository cptR;
 	private PieceIdentiteRepository pR;
 	private WalletRepository wR;
-	public ClientRestController(ClientRepository cR,PieceIdentiteRepository pR, CompteRepository cptR,WalletRepository wr){
+	private CarteDeCreditRepository cdcR;
+	public ClientRestController(ClientRepository cR,PieceIdentiteRepository pR, CompteRepository cptR,WalletRepository wr,CarteDeCreditRepository cdcR){
 			this.clientR=cR;
 			this.cptR=cptR;
 			this.pR=pR;
 			this.wR=wr;
+			this.cdcR=cdcR;
 	}
 	@GetMapping(path="/get_clients")
 	public List<Client>listClients(){
@@ -38,7 +40,16 @@ public class ClientRestController {
 		}
 		Wallet w=client.getWallet();
 		if(w!=null){
+			List<CarteDeCredit>lcartes=w.getCartes();
 			wR.save(w);
+			if(lcartes!=null){
+				for(CarteDeCredit cdc:lcartes){
+					cdc.setWallet(w);
+					cdcR.save(cdc);
+				}
+			}
+			
+			
 		}
 		 List<Compte>l=client.getComptes();
 		 if(l!=null){
@@ -56,9 +67,22 @@ public class ClientRestController {
 
 
 	@PutMapping(path="/update_client/{id}")
-	public Client updateClient(@PathVariable Long id,@RequestBody Client cl){
-		cl.setIdClient(id);
-		return clientR.save(cl);
+	public Client updateClient(@PathVariable Long id,@RequestBody Client nvClient){
+		nvClient.setIdClient(id);
+		Client cOriginal=clientR.getById(id);
+		if(nvClient.getPiece_identite()!=null){
+			nvClient.setPiece_identite(pR.getById(nvClient.getPiece_identite().getId()));
+		}else{
+			nvClient.setPiece_identite(cOriginal.getPiece_identite());
+		}
+		nvClient.setComptes(cOriginal.getComptes());
+		if(nvClient.getWallet()!=null){
+			nvClient.setWallet(wR.getById(nvClient.getWallet().getId()));
+		}else{
+			nvClient.setWallet(cOriginal.getWallet());
+		}
+		
+		return clientR.save(nvClient);
 		
 	}
 	@DeleteMapping(path="/delete_client/{id}")

@@ -11,19 +11,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
 @Table(name="point_de_vente")
 @Data @NoArgsConstructor @AllArgsConstructor
-public class PointDeVente {
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
-	private double limite_quotidienne;
-	private String ville;
-	private String pays;
-	private double montant_disponible;
+public class PointDeVente extends LieuDeTravail{
+	
 	@OneToMany(targetEntity=Agent.class,mappedBy="pointdevente")
-	private List<Agent> Agents;
+	@JsonIgnoreProperties({"pointdevente"})
+	private List<Agent> agents;
+	private double montant_maximal;
 }

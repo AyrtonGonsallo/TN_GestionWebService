@@ -2,47 +2,44 @@ package com.example.EmissionTransfertNational.web;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.example.EmissionTransfertNational.entities.PieceIdentite;
-import com.example.EmissionTransfertNational.repositories.PieceIdentiteRepository;
+import com.example.EmissionTransfertNational.entities.*;
+import com.example.EmissionTransfertNational.repositories.*;
 @RestController
 public class PieceIdentiteRestController {
-	private PieceIdentiteRepository PieceIdentiteR;
-	public PieceIdentiteRestController(PieceIdentiteRepository cR){
-			this.PieceIdentiteR=cR;
+	private PieceIdentiteRepository pieceIdentiteR;
+	private ClientRepository clientR;
+	public PieceIdentiteRestController(PieceIdentiteRepository pieceRepository,ClientRepository clientR){
+			this.pieceIdentiteR=pieceRepository;
+			this.clientR=clientR;
 	}
 	@GetMapping(path="/get_PieceIdentites")
 	public List<PieceIdentite>listPieceIdentites(){
-		return PieceIdentiteR.findAll();
+		return pieceIdentiteR.findAll();
 		
 	}
 	@GetMapping(path="/get_PieceIdentite/{id}")
 	public PieceIdentite getPieceIdentite(@PathVariable Long id){
-		return PieceIdentiteR.findById(id).get();
+		return pieceIdentiteR.findById(id).get();
 		
 	}
 	@PostMapping(path="/add_PieceIdentite")
 	public PieceIdentite savePieceIdentite(@RequestBody PieceIdentite PieceIdentite){
 		
-		return PieceIdentiteR.save(PieceIdentite);
+		return pieceIdentiteR.save(PieceIdentite);
 		
 	}
 	@PutMapping(path="/update_PieceIdentite/{id}")
-	public PieceIdentite updatePieceIdentite(@PathVariable Long id,@RequestBody PieceIdentite cl){
-		cl.setId(id);
-		return PieceIdentiteR.save(cl);
+	public PieceIdentite updatePieceIdentite(@PathVariable Long id,@RequestBody PieceIdentite nvPieceIdentite){
+		nvPieceIdentite.setId(id);
+		
+		return pieceIdentiteR.save(nvPieceIdentite);
 		
 	}
 	@DeleteMapping(path="/delete_PieceIdentite/{id}")
 	public void deletePieceIdentite(@PathVariable Long id){
-		PieceIdentiteR.deleteById(id);
+		pieceIdentiteR.deleteById(id);
 		
 	}
 }

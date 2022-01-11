@@ -8,6 +8,7 @@ import com.example.EmissionTransfertNational.enums.Sexe;
 import com.example.EmissionTransfertNational.enums.TypeClient;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 import lombok.*;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -15,10 +16,9 @@ import lombok.*;
 @Data @NoArgsConstructor @AllArgsConstructor @Setter @Getter
 public class Client {
 	@Id @GeneratedValue
+	//@JsonProperty(access=Access.READ_ONLY)
 	private long idClient;
-	
 	private String nom;
-	
 	private String prenom;
 	private String telephone;
 	@OneToOne
@@ -38,6 +38,7 @@ public class Client {
 	private String email;
 	@OneToOne
 	@JoinColumn(name = "wallet_id", referencedColumnName = "id")
+	@JsonIgnoreProperties({"client"})
 	private Wallet wallet;
 	private String ville;
 }

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import com.example.EmissionTransfertNational.enums.TypePieceIdentite;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.*;
 @Entity
@@ -15,6 +16,7 @@ import lombok.*;
 @Data @NoArgsConstructor @AllArgsConstructor @Getter @Setter
 public class PieceIdentite {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@JsonProperty(access=Access.READ_ONLY)
 	private long id;
 	@Enumerated(EnumType.STRING)
 	private TypePieceIdentite type_piece_identite;
