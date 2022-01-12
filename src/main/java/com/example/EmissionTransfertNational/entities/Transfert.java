@@ -42,7 +42,7 @@ public class Transfert {
 	private Emetteur emetteur;
 	@OneToOne
 	@JoinColumn(name="agent_id",referencedColumnName="idClient")
-	@JsonIgnoreProperties({"transfert"})
+	@JsonIgnoreProperties({"transfert","pointdevente"})
 	private Agent agent;
 	private String pays_d_emission;
 	@OneToOne
@@ -57,10 +57,10 @@ public class Transfert {
 	private TransfertMultiple transfertMultiple;
 	@ManyToOne
 	@JoinColumn(name="lieuDeService")
-	@JsonIgnoreProperties({"transfert_demandes","transfert_servis"})
+	@JsonIgnoreProperties({"transfert_demandes","transfert_servis","agents"})
 	private LieuDeTravail lieuDeService;
 	@ManyToOne
 	@JoinColumn(name="lieuDeDemande")
-	@JsonIgnoreProperties({"transfert_demandes","transfert_servis"})
+	@JsonIgnoreProperties({"transfert_demandes","transfert_servis","agents"})
 	private LieuDeTravail lieuDeDemande;
 }

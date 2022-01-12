@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import com.example.EmissionTransfertNational.entities.Client;
 import com.example.EmissionTransfertNational.enums.Sexe;
@@ -14,7 +15,6 @@ import com.example.EmissionTransfertNational.repositories.ClientRepository;
 public class EmissionTransfertNationalApplication implements CommandLineRunner {
 	@Autowired
 	private ClientRepository clientR;
-
 	public static void main(String[] args) {
 		SpringApplication.run(EmissionTransfertNationalApplication.class, args);
 	}

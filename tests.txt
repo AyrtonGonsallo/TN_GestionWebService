@@ -54,7 +54,7 @@ tester l'ajout d'un client avec 3 comptes wallet et piece
 
 //tester update client
 {
-  "idClient": 4,
+ 
   "nom": "Morgan",
   "prenom": "Harrison",
   "telephone": "+434644535",
@@ -132,7 +132,7 @@ attribuer une piece a un client
   "ville": "meknes",
   "salary": 300000,
   "pointdevente": {
-    "id": 8,
+    
     "numero_de_ville": 2,
     "ville": "meknes",
     "pays": "Maroc",
@@ -187,10 +187,10 @@ attribuer une piece a un client
   "ville": "Rio",
   "salary": 30000,
   "pointdevente": {
-    "limite_quotidienne": 10000000,
-    "ville": "Marrakech",
-    "pays": "Maroc",
-    "montant_disponible": 200000000
+     "numero_de_ville": 3,
+  "ville": "safi",
+  "pays": "Maroc",
+  "montant_maximal": 20000
   }
 }
 
@@ -287,59 +287,7 @@ tester l'ajout d'une carte sur un wallet existant (1)
 
 {
   "wallet": {
-  "id": 1,
-  "client": {
-    "idClient": 5,
-    "nom": "Morgan",
-    "prenom": "Debra",
-    "telephone": "+445643535",
-    "piece_identite": {
-      "id": 1,
-      "type_piece_identite": "passeport",
-      "numero": "AM9854895",
-      "date_de_naissance": "1989-01-11T10:54:15.000+00:00",
-      "pays": "Amerique",
-      "date_d_expiration": "2024-01-11T10:54:15.000+00:00"
-    },
-    "comptes": [
-      {
-        "idCompte": 1,
-        "montant": 30000,
-        "date_ouverture": "2012-01-11T10:54:15.000+00:00",
-        "type": "commission"
-      },
-      {
-        "idCompte": 2,
-        "montant": 50000,
-        "date_ouverture": "2016-01-11T10:54:15.000+00:00",
-        "type": "fonctionnement"
-      }
-    ],
-    "type": "partenaire",
-    "sexe": "M",
-    "profession": "Lieutnant",
-    "pays_d_adresse": "Amerique",
-    "adresselegale": "rue 33 45",
-    "email": "debmorgan@gmail.com",
-    "ville": "miami"
-  },
-  "cartes": [
-    {
-      "id": 1,
-      "montant": 30000,
-      "date_expiration": "2026-01-11T10:54:15.000+00:00"
-    },
-    {
-      "id": 2,
-      "montant": 30000,
-      "date_expiration": "2024-01-11T10:54:15.000+00:00"
-    },
-    {
-      "id": 3,
-      "montant": 40000,
-      "date_expiration": "2026-01-11T10:54:15.000+00:00"
-    }
-  ]
+  "id": 3
 },
   "montant": 45000,
   "date_expiration": "2022-01-11T13:34:44.607Z"
@@ -357,20 +305,7 @@ tester l'ajout d'un compte avec client
 {
   "montant": 10000,
   "client": {
-  "idClient": 1,
-  "nom": "Caiceira",
-  "prenom": "Junior",
-  "telephone": "0634543456",
-  "piece_identite": null,
-  "comptes": [],
-  "type": "de_passage",
-  "sexe": "M",
-  "profession": null,
-  "pays_d_adresse": "maroc",
-  "adresselegale": "23 rue 23",
-  "email": "j@c.com",
-  "wallet": null,
-  "ville": "meknes"
+  "idClient": 8
 },
   "date_ouverture": "2022-01-11T14:27:52.315Z",
   "type": "commission"
@@ -389,23 +324,10 @@ tester l'ajout d'un compte sans client
 mettre a jour le client et le solde du compte
 
 {
-  "idCompte": 7,
+  
   "montant": 10000,
   "client": {
-  "idClient": 2,
-  "nom": "Miko",
-  "prenom": "Manske",
-  "telephone": "0634526374",
-  "piece_identite": null,
-  "comptes": [],
-  "type": "partenaire",
-  "sexe": "M",
-  "profession": null,
-  "pays_d_adresse": "maroc",
-  "adresselegale": "22 rue 23",
-  "email": "m@m.com",
-  "wallet": null,
-  "ville": "marrakech"
+  "idClient": 2
 },
   "date_ouverture": "2022-01-11T14:27:52.000+00:00",
   "type": "commission"
@@ -480,13 +402,14 @@ tester la mise a jour d'un emeteur
 }
 
 ajouter point de vente
+
 {
-  "ville": "marrakech",
-  "pays": "maroc",
-  "montant_maximal": 3000000
+  
+  "numero_de_ville": 1,
+  "ville": "safi",
+  "pays": "Maroc",
+  "montant_maximal": 10000
 }
-
-
 
 
 

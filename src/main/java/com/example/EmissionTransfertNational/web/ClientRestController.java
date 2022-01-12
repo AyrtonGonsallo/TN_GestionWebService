@@ -8,7 +8,7 @@ import com.example.EmissionTransfertNational.entities.*;
 import com.example.EmissionTransfertNational.repositories.*;
 
 
-@RestController
+@RestController @CrossOrigin("*")
 public class ClientRestController {
 	private ClientRepository clientR;
 	private CompteRepository cptR;

@@ -23,11 +23,11 @@ public class LieuDeTravail {
 	private String ville;
 	private String pays;
 	@OneToMany( targetEntity=Transfert.class, mappedBy="lieuDeDemande")
-	@JsonIgnoreProperties({"lieuDeService","lieuDeDemande"})
+	@JsonIgnoreProperties({"lieuDeService","lieuDeDemande","agent"})
 	@JsonProperty(access=Access.READ_ONLY)
 	private List<Transfert> transfert_demandes;
 	@OneToMany( targetEntity=Transfert.class, mappedBy="lieuDeService")
-	@JsonIgnoreProperties({"lieuDeService","lieuDeService"})
+	@JsonIgnoreProperties({"lieuDeService","lieuDeService","agent"})
 	@JsonProperty(access=Access.READ_ONLY)
 	private List<Transfert> transfert_servis;
 }
