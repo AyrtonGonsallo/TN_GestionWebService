@@ -336,48 +336,51 @@ mettre a jour le client et le solde du compte
 tester l'ajout d'un emetteur
 
 {
-  "nom": "Ali",
-  "prenom": "Ben",
-  "telephone": "+333422545",
+    "nom": "Dondario",
+  "prenom": "Russell",
+  "telephone": "+2324342233",
   "piece_identite": {
+    
     "type_piece_identite": "passeport",
-    "numero": "FR373424",
-    "date_de_naissance": "2002-01-11T15:18:55.939Z",
-    "pays": "string",
-    "date_d_expiration": "2025-01-11T15:18:55.939Z"
+    "numero": "AM7624367",
+    "date_de_naissance": "2022-01-13T18:06:25.739Z",
+    "pays": "Amerique",
+    "date_d_expiration": "2022-01-13T18:06:25.739Z"
   },
   "comptes": [
     {
-      "montant": 1000,
-      "client": null,
-      "date_ouverture": "2020-01-11T15:18:55.940Z",
+      "montant": 10000,
+      "date_ouverture": "2022-01-13T18:06:25.739Z",
       "type": "commission"
     }
   ],
   "type": "partenaire",
   "sexe": "M",
-  "profession": "",
-  "pays_d_adresse": "France",
-  "adresselegale": "",
-  "email": "ben@ali.com",
+  "profession": "medecin",
+  "pays_d_adresse": "maroc",
+  "adresselegale": "maroc",
+  "email": "rusell@gmail.com",
   "wallet": {
     "cartes": [
       {
         "wallet": null,
-        "montant": 5100,
-        "date_expiration": "2024-01-11T15:18:55.940Z"
-      },
-{
-        "wallet": null,
-        "montant": 1200,
-        "date_expiration": "2024-01-11T15:18:55.940Z"
+        "montant": 10000,
+        "date_expiration": "2022-01-13T18:06:25.739Z"
       }
     ]
   },
-  "ville": "paris",
-  "limite_somme_transfert": 1000,
-  "nbr_transfert_envoyes": 0
-} 
+  "ville": "meknes",
+  "limite_somme_transfert": 10000,
+  "nbr_transfert_envoyes": 0,
+  "beneficiares": [
+    {
+      "idClient": 5
+    },
+    {
+      "idClient": 4
+    }
+  ]
+}
 
 tester la mise a jour d'un emeteur
 

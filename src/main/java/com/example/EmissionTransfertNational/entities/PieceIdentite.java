@@ -25,6 +25,7 @@ public class PieceIdentite {
 	private String pays;
 	 @OneToOne(mappedBy = "piece_identite")
 	 @JsonIgnoreProperties({"piece_identite"})
+	 @Transient
 	private Client client;
 	private Date date_d_expiration;
 }

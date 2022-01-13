@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.EmissionTransfertNational.entities.*;
 import com.example.EmissionTransfertNational.repositories.*;
-@RestController
+@RestController @CrossOrigin("*")
 public class PieceIdentiteRestController {
 	private PieceIdentiteRepository pieceIdentiteR;
 	private ClientRepository clientR;

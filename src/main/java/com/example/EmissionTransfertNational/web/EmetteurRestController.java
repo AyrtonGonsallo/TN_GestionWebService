@@ -2,6 +2,7 @@ package com.example.EmissionTransfertNational.web;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,21 +17,24 @@ import com.example.EmissionTransfertNational.entities.Compte;
 import com.example.EmissionTransfertNational.entities.Emetteur;
 import com.example.EmissionTransfertNational.entities.PieceIdentite;
 import com.example.EmissionTransfertNational.entities.Wallet;
+import com.example.EmissionTransfertNational.repositories.BeneficiaireRepository;
 import com.example.EmissionTransfertNational.repositories.CarteDeCreditRepository;
 import com.example.EmissionTransfertNational.repositories.CompteRepository;
 import com.example.EmissionTransfertNational.repositories.EmetteurRepository;
 import com.example.EmissionTransfertNational.repositories.PieceIdentiteRepository;
 import com.example.EmissionTransfertNational.repositories.WalletRepository;
-@RestController
+@RestController @CrossOrigin("*")
 public class EmetteurRestController {
 	private EmetteurRepository emetteurR;
 	private CompteRepository cptR;
 	private PieceIdentiteRepository pR;
 	private WalletRepository wR;
+	private BeneficiaireRepository bR;
 	private CarteDeCreditRepository cdcR;
-	public EmetteurRestController(EmetteurRepository cR,PieceIdentiteRepository pR, CompteRepository cptR,WalletRepository wr,CarteDeCreditRepository cdcR){
+	public EmetteurRestController(BeneficiaireRepository bR,EmetteurRepository cR,PieceIdentiteRepository pR, CompteRepository cptR,WalletRepository wr,CarteDeCreditRepository cdcR){
 			this.emetteurR=cR;
 			this.cptR=cptR;
+			this.bR=bR;
 			this.pR=pR;
 			this.wR=wr;
 			this.cdcR=cdcR;
@@ -75,6 +79,19 @@ public class EmetteurRestController {
 			 c.setClient(emetteur);
 			 cptR.save(c);
 		 }
+		 }
+		 List<Beneficiaire>lb=emetteur.getBeneficiares();
+		 if(lb!=null){
+			 System.out.println("liste des beneficiaires"+lb.toString());
+			 for(Beneficiaire b:lb){
+				 //les beneficiaires existent deja
+				 Beneficiaire ben=bR.findByIdClient(b.getIdClient());
+				 if(ben!=null){
+					 System.out.println("voici un beneficiaire"+ben.toString());
+				 }
+				 ben.setEmetteur(emetteur);
+				 bR.save(ben);
+			 }
 		 }
 		return emetteurR.save(emetteur);
 		

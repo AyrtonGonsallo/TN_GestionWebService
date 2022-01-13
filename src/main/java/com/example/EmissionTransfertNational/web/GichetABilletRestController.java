@@ -2,6 +2,7 @@ package com.example.EmissionTransfertNational.web;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.EmissionTransfertNational.entities.GichetABillet;
 import com.example.EmissionTransfertNational.repositories.GichetABilletRepository;
 
-@RestController
+@RestController @CrossOrigin("*")
 public class GichetABilletRestController {
 	private GichetABilletRepository gichetABilletR;
 	public GichetABilletRestController(GichetABilletRepository cR){

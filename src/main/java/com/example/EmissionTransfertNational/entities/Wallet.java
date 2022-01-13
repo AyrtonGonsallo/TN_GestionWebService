@@ -21,8 +21,10 @@ public class Wallet {
 	private Long id;
 	@OneToOne(mappedBy="wallet")
 	@JsonIgnoreProperties({"wallet"})  //ignorer a la lecture
+	@Transient
 	private Client client;
 	@JsonIgnoreProperties({"wallet"})    //ignorer a la lecture
 	@OneToMany(targetEntity=CarteDeCredit.class,mappedBy="wallet")
+	
 	private List<CarteDeCredit> cartes;
 }

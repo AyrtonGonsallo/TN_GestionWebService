@@ -18,5 +18,6 @@ public class Agent extends Client {
 	private PointDeVente pointdevente;
 	@JsonIgnoreProperties({"agent"})
 	@OneToOne(mappedBy = "agent")
+	@Transient
 	private Transfert transfert;
 }

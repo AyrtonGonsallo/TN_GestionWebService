@@ -2,6 +2,7 @@ package com.example.EmissionTransfertNational.web;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,7 @@ import com.example.EmissionTransfertNational.entities.Emetteur;
 import com.example.EmissionTransfertNational.entities.Transfert;
 import com.example.EmissionTransfertNational.repositories.EmetteurRepository;
 import com.example.EmissionTransfertNational.repositories.TransfertRepository;
-@RestController
+@RestController @CrossOrigin("*")
 public class TransfertRestController {
 	private EmetteurRepository eR;
 	private TransfertRepository tR;
@@ -34,7 +35,7 @@ public class TransfertRestController {
 	}
 	@PostMapping(path="/add_Transfert")
 	public Transfert saveTransfert(@RequestBody Transfert transfert){
-		Emetteur em=transfert.getEmetteur();
+		//Emetteur em=transfert.getEmetteur();
 		//en suppossant que l'emetteur et le beneficiaire existent
 		tR.save(transfert);
 		
