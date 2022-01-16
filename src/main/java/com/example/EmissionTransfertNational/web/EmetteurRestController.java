@@ -80,14 +80,14 @@ public class EmetteurRestController {
 			 cptR.save(c);
 		 }
 		 }
-		 List<Beneficiaire>lb=emetteur.getBeneficiares();
+		 List<Beneficiaire>lb=emetteur.getBeneficiaires();
 		 if(lb!=null){
-			 System.out.println("liste des beneficiaires"+lb.toString());
+			 System.out.println("liste des beneficiaires");
 			 for(Beneficiaire b:lb){
 				 //les beneficiaires existent deja
 				 Beneficiaire ben=bR.findByIdClient(b.getIdClient());
 				 if(ben!=null){
-					 System.out.println("voici un beneficiaire"+ben.toString());
+					 System.out.println("voici un beneficiaire");
 				 }
 				 ben.setEmetteur(emetteur);
 				 bR.save(ben);

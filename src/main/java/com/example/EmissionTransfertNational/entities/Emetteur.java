@@ -27,5 +27,5 @@ public class Emetteur extends Client {
 	private Transfert transfert;
 	@JsonIgnoreProperties(value={"emetteur","transfert"},allowSetters=true)
 	@OneToMany( targetEntity=Beneficiaire.class, mappedBy="emetteur")
-	private List<Beneficiaire>beneficiares;
+	private List<Beneficiaire>beneficiaires;
 }
