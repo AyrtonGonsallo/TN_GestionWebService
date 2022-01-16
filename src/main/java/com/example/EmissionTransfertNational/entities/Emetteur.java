@@ -21,10 +21,9 @@ import lombok.NoArgsConstructor;
 public class Emetteur extends Client {
 	private double limite_somme_transfert;
 	private int nbr_transfert_envoyes;
-	@JsonIgnoreProperties({"emetteur"})
-	@OneToOne(mappedBy = "emetteur")
+	@OneToMany( targetEntity=Transfert.class, mappedBy="emetteur")
 	@Transient
-	private Transfert transfert;
+	private List<Transfert> transferts;
 	@JsonIgnoreProperties(value={"emetteur","transfert"},allowSetters=true)
 	@OneToMany( targetEntity=Beneficiaire.class, mappedBy="emetteur")
 	private List<Beneficiaire>beneficiaires;

@@ -53,7 +53,7 @@ public class EmetteurRestController {
 	public Emetteur saveEmetteur(@RequestBody Emetteur emetteur){
 		
 		PieceIdentite pi=emetteur.getPiece_identite();
-		emetteur.setTransfert(null);
+		emetteur.setTransferts(null);
 		if(pi!=null){
 			pR.save(pi);
 		}
@@ -102,7 +102,7 @@ public class EmetteurRestController {
 		neEmetteur.setIdClient(id);
 		Emetteur benOriginal=emetteurR.getById(id);
 		neEmetteur.setComptes(benOriginal.getComptes());
-		neEmetteur.setTransfert(benOriginal.getTransfert());
+		neEmetteur.setTransferts(benOriginal.getTransferts());
 		neEmetteur.setPiece_identite(benOriginal.getPiece_identite());
 		neEmetteur.setWallet(benOriginal.getWallet());
 		return emetteurR.save(neEmetteur);

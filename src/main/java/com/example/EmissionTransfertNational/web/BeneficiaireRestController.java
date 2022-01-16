@@ -56,7 +56,7 @@ public class BeneficiaireRestController {
 		
 		
 		PieceIdentite pi=beneficiaire.getPiece_identite();
-		beneficiaire.setTransfert(null);
+		beneficiaire.setTransferts(null);
 		beneficiaire.setEmetteur(null);
 		if(pi!=null){
 			pR.save(pi);
@@ -94,7 +94,7 @@ public class BeneficiaireRestController {
 		nvBeneficiaire.setIdClient(id);
 		Beneficiaire benOriginal=beneficiaireR.getById(id);
 		nvBeneficiaire.setComptes(benOriginal.getComptes());
-		nvBeneficiaire.setTransfert(benOriginal.getTransfert());
+		nvBeneficiaire.setTransferts(benOriginal.getTransferts());
 		nvBeneficiaire.setPiece_identite(benOriginal.getPiece_identite());
 		nvBeneficiaire.setWallet(benOriginal.getWallet());
 		

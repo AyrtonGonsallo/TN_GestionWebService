@@ -36,8 +36,8 @@ public class Transfert {
 	private double montant_operation;
 	private double comission;
 	private double frais;
-	@OneToOne
-	@JoinColumn(name="emetteur_id",referencedColumnName="idClient")
+	@ManyToOne
+	@JoinColumn(name="emetteur_id")
 	@JsonIgnoreProperties({"transfert"})
 	private Emetteur emetteur;
 	@OneToOne
@@ -45,8 +45,8 @@ public class Transfert {
 	@JsonIgnoreProperties({"transfert","pointdevente"})
 	private Agent agent;
 	private String pays_d_emission;
-	@OneToOne
-	@JoinColumn(name="beneficiaire_id",referencedColumnName="idClient")
+	@ManyToOne
+	@JoinColumn(name="beneficiaire_id")
 	@JsonIgnoreProperties({"transfert"})
 	private Beneficiaire beneficiaire;
 	@Enumerated(EnumType.STRING)
