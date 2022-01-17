@@ -89,7 +89,9 @@ public class EmetteurRestController {
 				 if(ben!=null){
 					 System.out.println("voici un beneficiaire");
 				 }
-				 ben.setEmetteur(emetteur);
+				 List<Emetteur> lem=ben.getEmetteurs();
+				 lem.add(emetteur);
+				 ben.setEmetteurs(lem);
 				 bR.save(ben);
 			 }
 		 }
